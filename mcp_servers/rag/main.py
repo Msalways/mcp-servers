@@ -9,7 +9,6 @@ from capabilities import setup_capabilities
 # Create MCP server
 mcp = FastMCP("RAG MCP Server")
 
-
 # Register capabilities
 setup_capabilities(mcp)
 
@@ -21,8 +20,10 @@ async def show_tools():
     for tool_name, tool in tools.items():
         print(f"  - {tool.name}: {tool.description or 'No description'}")
 
+
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
     if len(sys.argv) > 1 and sys.argv[1] == "--stdio":
         asyncio.run(mcp.run())
     else:
-        mcp.run(transport="http", port=8000, path="/mcp")
+        mcp.run(transport="http", port=port, path="/mcp")
