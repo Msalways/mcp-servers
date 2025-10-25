@@ -1,0 +1,3 @@
+- [x] Update mcp_client/test_client.py to use HTTP transport instead of stdio
+- [x] Fix requirements.txt by recreating it with proper package list
+- [x] Test the MCP server HTTP connection
